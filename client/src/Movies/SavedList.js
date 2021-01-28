@@ -1,7 +1,11 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-
+import { useParams, useHistory } from "react-router-dom";
 function SavedList({ list }) {
+  const {push} = useHistory();
+  const addMovie = () => {
+    push('/add-movie')
+  }
   return (
     <div className="saved-list">
       <h3>Saved Movies:</h3>
@@ -17,6 +21,7 @@ function SavedList({ list }) {
         );
       })}
       <div className="home-button">
+        <button onClick = {addMovie}>Add Movie</button>
         <Link to="/">Home</Link>
       </div>
     </div>
